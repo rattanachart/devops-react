@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: devops-react
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-react
+  template:
+    metadata:
+      labels:
+        app: devops-react
+    spec:
+      containers:
+        - name: devops-react
+          image: rattanachart/devops-react:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
